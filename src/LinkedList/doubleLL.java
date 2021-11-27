@@ -2,8 +2,6 @@ package LinkedList;
 
 public class doubleLL {
     private Node head;
-    private Node prev;
-    private int size;
 
     public void insertFirst(int val){
         Node node = new Node(val);
@@ -15,15 +13,26 @@ public class doubleLL {
 
     public void Display(){
         Node node = head;
+        Node last = null;
         System.out.print("[");
         while(node!=null){
             System.out.print(node.val + " ->");
+            last = node;
             node = node.next;
         }
         System.out.print(" Null ]");
+
+        System.out.println("Reversing a linked list : ");
+        System.out.println("[");
+        while(last != null)
+        {
+            System.out.println(last.val + "-> ");
+            last = last.prev;
+        }
+        System.out.println(" Null ]");
     }
 
-    private class Node{
+    private static class Node{
         int val;
         Node next;
         Node prev;
